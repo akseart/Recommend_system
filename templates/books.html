@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ books.title }}</h1>
+    <hr/>
+    <div class="author">
+        {% if  books.authors|length > 0 and books.year|length > 0 %}
+            {{ books.authors }}, {{ books.year }}
+        {% else %}
+            {{ books.authors }} {{ books.year }}
+        {% endif %}
+    </div>
+    <br>
+    <div class="container1">
+      <div class="box">
+        Жанры:
+          {% for genre in books.genres.split(',') %}
+              <div>{{ genre }}</div>
+          {% endfor %}
+      </div>
+    </div>
+
+    <h1>Книги похожие на эту:</h1>
+    <hr/>
+    <ul>
+        {% for book in recomend %}
+            <li><a href={{ book.id }}> {{ book.title }}{{ book.author }}</a></li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}
