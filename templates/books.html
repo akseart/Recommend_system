@@ -23,7 +23,7 @@
     <h1>Книги похожие на эту:</h1>
     <hr/>
     <ul>
-        {% for book in recomend %}
+        {% for book in recommend %}
             <li><a href={{ book.id }}> {{ book.title }}{{ book.author }}</a></li>
         {% endfor %}
     </ul>
